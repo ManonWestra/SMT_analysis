@@ -1,4 +1,4 @@
-# matlab_smt
+# SMT_analysis
 ## Single-molecule tracking analysis in Matlab
 With these scripts you can perform single-molecule tracking analysis in MATLAB.
 It includes:
