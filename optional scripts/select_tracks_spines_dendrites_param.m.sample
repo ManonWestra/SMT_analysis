@@ -1,0 +1,5 @@
+%% select_tracks_spines_dendrites PARAMETERS
+
+savefile = 1;
+
+MTL = 30; % minimal track length to consider for analyis

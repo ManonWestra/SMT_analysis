@@ -1,0 +1,65 @@
+%% convertResults2Trjectory PARAMETERS
+
+maxroi = 1;     % is max projection already created? yes = 1, no = 0
+if maxroi == 0
+    filename_wf_raw = '*473*.tif'; %'*640_channelmapped.tif';   % filename of image to draw ROI on
+    filename_psd_raw = '*561*.tif'; %'*640_channelmapped.tif';
+end
+
+filename_csv = '*.csv';
+filename_wf = 'max_roi.tif';
+filename_psd = 'max_roi_homer.tif';
+filename_psdmask = 'max_roi_homer.tif_PSDMask_grey.fig';
+% ROI options
+ROI_image = 1; % 0 = widefield, 1 = rendered image
+load_prev_ROI = 1; % 0 = draw ROI, 1 = load previous ROI (roimask.mat)
+
+% COLUMNS IN LOCALIZATION TABLE WITH REQUIRED DATA
+frame_num = 2;     % frame number
+x_prec_nm = 6;     % x precision (nm)
+y_prec_nm = 7;     % y precision (nm)
+x_px = 8;          % x (pix)
+y_px = 9;          % y (pix)
+
+% save files and images
+savefile = 1;     % if you want to save -> 1, otherwise type 0
+
+% set tracking parameters
+dt = 0.02;                   % exposure time
+pixel = 117;                 % pixel diameter in nm
+tracking_radius = 4;         % tracking radius in pixels [n.b. if set at 4, radius is 468 nm, with dt = 0.02 max D = 2.7um2/s]
+
+% set localization precision cutoff in nm
+loc_precision = 50;
+
+% set minimum and maximum track length for analysis
+track_min_max = [30 inf];
+
+% number of points used to fit D (default np = 4)
+np = 4;
+
+% set parameters for immobile/mobile particles analysis
+minSteps = 30;
+mob_ratio = 2.11;            % cut off ratio: gyration radius/mean stepsize
+
+% set parameters for plotting tracks
+minPlot = 30;
+
+% set parameters for plotting localizations;
+rendered_pix = 100;   % size of rendered pixels in density map in nm 
+
+% which channel to track?
+channel = 1;
+%channel = input('Which channel to track? ');
+
+% for QDs allow a few time steps for a QD to dissapear, 0 if not QD
+%disappear_steps = input('Number of disappear_steps: ');    
+disappear_steps = 0;   %5
+
+% Contrast settings of image display
+% widefield image
+lower_limit_image = 1;
+upper_limit_image = 1000;
+% homer image
+low_homer = 400;
+up_homer = 650;

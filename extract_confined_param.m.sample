@@ -1,0 +1,31 @@
+%% extract_confined PARAMETERS
+
+savefile = 1;
+plotscatter = 0;
+
+% PARAMETERS TO ADJUST
+% Set parameters for confinement index
+minimum = 30;                       % minimum track length to consider for confinement index / not used because for mobile already >30
+Sm = 15;                            % window size, cannot be greater than 'minimum'
+Lcm = 5.5;                            % threshold L to consider confinement (should be above Lcm)
+Tc = 0.2;%10*dt;                         % minimal time to consider confinement
+alfa = 0.5;                         % defines Lc (Lc = alfa * {average L of all points in trajectory})
+Lmax = 100;                         % maximum L value to fix a threshold
+Lcmax = 19;                         % threshold for high L
+renderpx = 10;                      % to make bins of renderpx nm in confinement map
+border = 200;                       % border around confinement map in nm
+borderpx = ceil(border/renderpx);   % border in 'pixels'
+npointsMSDset = 10;                 % smaller than minimal track length, sliding window for MSD is (npointsMSDset + 1) frames, default 10
+Smin = 4;                           % should be smaller than Sm, minimal segment length in frames, default 4
+np = 4;                             % number of points used to fit D  [default = 4]
+
+selected_tracks = 'mobile';  % mobile, immobile or all
+% selected_tracks = input('Which tracks to analyze? (mobile, immobile or all) ');
+
+% include immobile track centers in confinement map?
+imm_conf_map = 0;
+radius_imm = 50;  % in nm
+
+filename_confmap = 'Confinement_map_mobile.fig';
+filename_wf = 'max_roi_homer.tif';
+filename_psdmask = 'max_roi_homer.tif_PSDMask_grey.fig';

@@ -1,0 +1,22 @@
+%% make_psd_mask PARAMETERS
+
+maxroi = 1;     % is max projection already created? yes = 1, no = 0
+
+if maxroi == 0
+    filename = '*561_channelmapped.tif'; % PSD image multiple frames           
+elseif maxroi ==1
+    filename = 'max_roi_homer.tif';   % PSD image max intensity
+end
+
+pixel = 117;            % pixel size of microscope in nm
+
+% make mesh
+nsub = pixel / 10;      % to make pixelsize resampled image 10nm
+%nsub = 1;              % how many times interpolated
+
+% to save files -> 1, don't save files -> 0 
+savefile = 1;
+
+% Settings of image display
+lower_limit_image = 300;
+upper_limit_image = 800;

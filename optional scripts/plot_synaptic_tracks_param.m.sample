@@ -1,0 +1,4 @@
+%% plot_synaptic_tracks PARAMETERS
+
+filename_psd = 'max_roi_homer.tif';
+filename_psdmask = 'max_roi_homer.tif_PSDMask_grey.fig';

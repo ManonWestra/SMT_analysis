@@ -1,0 +1,9 @@
+%% draw_ROIs_on_image PARAMETERS
+
+filename = 'max_roi.tif';
+pixel = 117;  % pixel size in nm
+
+% intensity range for plotting image
+low = 0;
+high = 800;
+

@@ -1,0 +1,6 @@
+%% extract_extra_transient_synaptic_tracks PARAMETERS
+
+savefile = 1;
+
+MTL = 30; % minimal track length to consider for analyis
+MFS = 0.75; % fraction of a track that has to be within the PSD to call it synaptic

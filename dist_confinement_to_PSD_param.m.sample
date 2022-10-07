@@ -1,0 +1,4 @@
+%% dist_confinement_to_PSD PARAMETERS
+
+psd_number = 35;  % psd index from PSDmask.mat
+
